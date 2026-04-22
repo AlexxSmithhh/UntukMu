@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untuk Ara Sayangg 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<style>
+html{scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  text-align:center;
+  color:#3a2e2e;
+  overflow-x:hidden;
+  background:linear-gradient(rgba(255,240,245,0.9),rgba(255,228,235,0.95)),
+  url("https://images.unsplash.com/photo-1518199266791-5375a83190b7");
+  background-size:cover;
+}
+
+body.lock{overflow:hidden;}
+
+/* OPEN */
+#openScreen{
+  position:fixed;
+  top:0;left:0;
+  width:100vw;height:100vh;
+  background:#fbe4e8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:9999;
+  transition:1s;
+}
+
+#openScreen.fadeOut{
+  opacity:0;
+  transform:scale(1.05);
+}
+
+/* nama */
+#nameIntro{
+  font-family:'Playfair Display', serif;
+  font-size:26px;
+  margin-bottom:20px;
+}
+
+/* amplop */
+.envelope{
+  width:140px;
+  height:90px;
+  background:#f4a6b1;
+  position:relative;
+  cursor:pointer;
+  border-radius:6px;
+  overflow:hidden;
+}
+.envelope::before{
+  content:"";
+  position:absolute;
+  top:0;
+  width:100%;
+  height:50%;
+  background:#e38c98;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top;
+  transition:0.6s;
+}
+.envelope.open::before{
+  transform:rotateX(180deg);
+}
+
+/* section */
+.section{
+  padding:80px 20px;
+  max-width:600px;
+  margin:40px auto;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(255,182,193,0.2);
+}
+
+/* fade */
+.fade{
+  opacity:0;
+  transform:translateY(20px);
+  transition:1.5s;
+}
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* image */
+img{
+  width:150px;
+  border-radius:16px;
+  margin:25px 0;
+}
+
+/* 🎂 */
+.cake{
+  position:fixed;
+  width:60px;
+  opacity:0.5;
+  border-radius:12px;
+  animation:float1 6s ease-in-out infinite;
+}
+.cake1{top:20px;left:20px;}
+.cake2{bottom:20px;right:20px;}
+
+/* 🌸 */
+.flower{
+  position:fixed;
+  width:40px;
+  opacity:0.4;
+  border-radius:12px;
+}
+.flower1{top:30%;left:10px;animation:float1 7s infinite;}
+.flower2{top:60%;right:15px;animation:float2 8s infinite;}
+.flower3{bottom:25%;left:15px;animation:float3 9s infinite;}
+.flower4{top:10%;right:25px;animation:float1 6s infinite;}
+
+@keyframes float1{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+@keyframes float2{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+@keyframes float3{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+
+/* 🎧 */
+.music-box{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.3);
+  border-radius:50px;
+  padding:8px 12px;
+  display:flex;
+  gap:6px;
+}
+.music-box button{
+  background:none;
+  border:none;
+  font-size:16px;
+  cursor:pointer;
+  color:#e38c98;
+}
+.music-box button:hover{
+  transform:scale(1.2);
+}
+
+/* cursor */
+#typingText::after{
+  content:"|";
+  animation:blink 1s infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:0;}
+  50%{opacity:1;}
+}
+
+/* mobile */
+@media(max-width:600px){
+  .section{margin:20px 10px;padding:50px 15px;}
+  img{width:110px;}
+}
+.flower{
+  opacity:0.35;
+  filter:blur(0.3px);
+}
+
+.cake{
+  opacity:0.4;
+  filter:blur(0.2px);
+}
+</style>
+</head>
+
+<body class="lock">
+
+<!-- OPEN -->
+<div id="openScreen">
+  <h2 id="nameIntro"></h2>
+  <div class="envelope" onclick="start(this)"></div>
+</div>
+
+<!-- ORNAMEN -->
+<img src="kue.jpg" class="cake cake1">
+<img src="kue.jpg" class="cake cake2">
+
+<img src="bunga.jpg" class="flower flower1">
+<img src="bunga.jpg" class="flower flower2">
+<img src="bunga.jpg" class="flower flower3">
+<img src="bunga.jpg" class="flower flower4">
+
+<!-- CONTENT -->
+<div class="section fade">
+<h1>Untuk Risky Azzahra 💕</h1>
+<p>13 Juni 2026</p>
+</div>
+
+<div class="section fade">
+<img src="foto1.jpg">
+<p><i>“Semenjak dirimu hadir, hidupku jadi lebih berwarna.”</i></p>
+</div>
+
+<div class="section fade">
+<p id="typingText"></p>
+</div>
+
+<div class="section fade">
+<img src="foto2.jpg">
+<p><i>“Mau diulang berapa kalipun, aku akan tetap memilihmu.”</i></p>
+</div>
+
+<div class="section fade">
+<h2>aku sangat mencintaimu 💕</h2>
+</div>
+
+<div class="section fade">
+<p>Dengan tulus,<br><b>Iqram Achzan</b></p>
+</div>
+
+<!-- AUDIO -->
+<audio id="lagu" loop>
+  <source src="lagu.mp3">
+</audio>
+
+<audio id="paperSound">
+  <source src="https://www.soundjay.com/paper/paper-rip-01.mp3">
+</audio>
+
+<audio id="typingSound">
+  <source src="https://www.soundjay.com/mechanical/keyboard-typing-01.mp3">
+</audio>
+
+<div class="music-box">
+  <button onclick="play()">▶</button>
+  <button onclick="pause()">⏸</button>
+  <button onclick="replay()">↺</button>
+</div>
+
+<script>
+// nama awal
+const nameText="Untuk Ara sayangg 💕";
+let ni=0;
+function typeName(){
+  if(ni<nameText.length){
+    document.getElementById("nameIntro").innerHTML+=nameText.charAt(ni);
+    ni++;
+    setTimeout(typeName,80);
+  }
+}
+typeName();
+
+let audio=document.getElementById("lagu");
+let paper=document.getElementById("paperSound");
+
+// start cinematic
+function start(el){
+  el.classList.add("open");
+  paper.play();
+
+  setTimeout(()=>{
+    document.getElementById("openScreen").classList.add("fadeOut");
+
+    setTimeout(()=>{
+      document.getElementById("openScreen").style.display="none";
+      document.body.classList.remove("lock");
+
+      audio.volume=0;
+      audio.play();
+
+      let vol=0;
+      let fade=setInterval(()=>{
+        if(vol<1){
+          vol+=0.05;
+          audio.volume=vol;
+        }else clearInterval(fade);
+      },200);
+
+    },800);
+  },500);
+}
+
+// music
+function play(){audio.play();}
+function pause(){audio.pause();}
+function replay(){audio.currentTime=0;audio.play();}
+
+// TEXT (ASLI LO)
+const text = `Dari hal kecil, tumbuh sesuatu yang besar.
+
+Awalnya hanya percakapan sederhana. Tidak ada yang istimewa, hanya saling menyapa dan berbagi cerita seperti biasa. Tapi entah sejak kapan, semuanya mulai berubah.
+
+Percakapan itu menjadi kebiasaan. Kehadiranmu jadi sesuatu yang aku tunggu setiap hari.
+
+Dan tanpa aku sadari, aku mulai menunggu—
+menunggu pesanmu,
+menunggu tawamu,
+dan menunggu setiap cerita yang kamu bagikan.
+
+Kamu berubah dari sekadar seseorang… menjadi kebiasaan yang tidak ingin aku hentikan.
+
+Namun di balik itu semua, kadang aku juga merasa bingung.
+
+Aku tidak selalu mengerti di mana letak kesalahanku.
+Entah dari caraku membalas pesanmu,
+sikapku ke kamu,
+atau mungkin aku yang belum benar-benar memahami kamu seutuhnya.
+
+Tapi satu hal yang pasti,
+aku tidak ingin menyerah.
+
+Aku akan terus belajar,
+memahami kamu,
+dan berusaha memperbaiki diriku menjadi lebih baik.
+
+Maaf kalau selama ini aku belum jadi yang terbaik untuk kamu.
+Maaf kalau aku masih sering salah.
+
+Tapi semua yang aku lakukan, semuanya sungguh-sungguh.
+
+Karena di antara banyak kemungkinan di dunia ini,
+aku tetap memilih kamu.
+
+Dan di tanggal ini,
+13 Juni 2026,
+
+aku hanya ingin bilang…
+
+Selamat ulang tahun.
+
+Semoga hari ini dipenuhi kebahagiaan.
+Semoga semua hal baik selalu datang ke hidupmu.
+
+Dan semoga,
+di antara semua kebahagiaan itu…
+
+aku masih punya tempat di dalamnya.
+
+Selamat ulang tahun,
+Risky Azzahra.
+
+Dan dari semua hal yang mungkin sulit aku ungkapkan dengan kata-kata,
+
+aku sangat mencintaimu.
+
+I love you, sayang 💕`;
+
+let i=0;
+const typingAudio=document.getElementById("typingSound");
+
+function typeEffect(){
+  if(i<text.length){
+    let char=text.charAt(i);
+    document.getElementById("typingText").innerHTML += char==="\\n"?"<br>":char;
+
+    if(char!==" "){
+      typingAudio.volume=0.1;
+      typingAudio.currentTime=0;
+      typingAudio.play();
+    }
+
+    i++;
+    let delay=25;
+    if(char==="."||char==="—"){delay=350;}
+    setTimeout(typeEffect,delay);
+  }
+}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      typeEffect();
+      observer.disconnect();
+    }
+  });
+});
+observer.observe(document.getElementById("typingText"));
+
+// fade scroll
+const fades=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-80){
+      el.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
